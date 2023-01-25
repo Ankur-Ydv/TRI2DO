@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Cabin+Sketch:wght@400;700&family=Rubik:wght@300;400;500&display=swap");
+
+:root {
+  --bgcolor:   rgb(247 248 250/1);
+  --primary: #1d5c96;
+  --secondary: #7db0de;
+  --third: #a94064;
+  --fourth: #12395d;
+  --scroller: #12395d;
+  --grey: rgba(0,10,32,.05);
+  --text: #000;
+  --inputText: #000;
+  --hover: #acbabf;
+  --box: rgb(255 255 255);
+  --blue: #339DFF; 
+  --lightBlue: #89cff0;
+  --midBlue:#29c5f6;
+  --darkBlue:#0000E7;
+  /* --whiteButton: #fff; */
+  /* --lightGreen: rgba(44,187,93,.12); */
+  --green:rgb(44 187 93/1);
+  /* --darkGreen:#0000E7; */
+}
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Rubik", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 0.3rem;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 0.2rem;
+  background-color: var(--scroller);
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--bgcolor);
+  
+  /* background-image: url('../images/bg2.png'); */
+}
+
+.dark-theme {
+  /* --bgcolor: #23395d; */
+  --bgcolor: rgb(26 26 26);
+  --primary: #1d5c96;
+  --secondary: #7db0de;
+  --third: #ac3b61;
+  --fourth: #fff;
+  --scroller: #1d5c96;
+  --grey: #36454f;
+  /* --text: black; */
+  --text: white;
+  --inputText: #000;
+  --hover: #36454f;
+  /* --box: #2a2b2f; */
+  --box:  rgb(40 40 40/1);
+  --blue: #4285F4; 
+  --lightBlue: rgb(137, 207, 240,0.7);
+  --midBlue:rgb(137, 207, 240,0.5);
+  --darkBlue:#0000E7;
+  /* --whiteButton: #fff; */
+  --green:rgb(44 187 93/1);
+}
+
+.light-theme {
+  --bgcolor:   rgb(247 248 250/1);
+  --primary: #1d5c96;
+  --secondary: #7db0de;
+  --third: #a94064;
+  --fourth: #12395d;
+  --scroller: #12395d;
+  --grey: rgba(0,10,32,.05);
+  --text: #000;
+  --inputText: #000;
+  --hover: #acbabf;
+  --box: rgb(255 255 255);
+  --blue: #339DFF; 
+  --lightBlue: #89cff0;
+  --midBlue:#29c5f6;
+  --darkBlue:#0000E7;
+  /* --whiteButton: #fff; */
+  /* --lightGreen: rgba(44,187,93,.12); */
+  --green:rgb(44 187 93/1);
+  /* --darkGreen:#0000E7; */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+
