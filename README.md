@@ -2,7 +2,7 @@
 #### It is ONE-STOP Web-App for all trending DSA Sheets. 
 
 ## Demo
-####https://tri2do.vercel.app/
+#### https://tri2do.vercel.app/
 
 ## Installation Guide
 ### clone the project
