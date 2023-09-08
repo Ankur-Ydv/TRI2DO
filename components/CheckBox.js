@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import React, { useEffect, useState } from "react";
 
-const CheckBox = ({ qid, sheetId, solved, barHandle }) => {
+const CheckBox = ({ qid, sheetId, isSolved, isBookmarked, barHandle }) => {
   const [toggle, setToggle] = useState(false);
 
   useEffect(() => {

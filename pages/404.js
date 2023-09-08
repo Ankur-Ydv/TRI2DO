@@ -1,37 +1,35 @@
 import styled from "@emotion/styled";
 import Link from "next/link";
 import React from "react";
-import Footer from "../components/Footer";
 
 const error = () => {
   return (
     <>
       <Container>
-        <div class="title">
-          <div class="number">4</div>
-          <div class="moon">
-            <div class="face">
-              <div class="mouth"></div>
-              <div class="eyes">
-                <div class="eye-left"></div>
-                <div class="eye-right"></div>
+        <div className="title">
+          <div className="number">4</div>
+          <div className="moon">
+            <div className="face">
+              <div className="mouth"></div>
+              <div className="eyes">
+                <div className="eye-left"></div>
+                <div className="eye-right"></div>
               </div>
             </div>
           </div>
-          <div class="number">4</div>
+          <div className="number">4</div>
         </div>
-        <div class="subtitle">OOPS! Looks like you took a wrong turn.</div>
+        <div className="subtitle">OOPS! Looks like you took a wrong turn.</div>
         <Link href={"/"}>
           <button>Back to Home Page</button>
         </Link>
       </Container>
-      <Footer />
     </>
   );
 };
 
 const Container = styled.div`
-  height: 82vh;
+  height: 100vh;
   width: 100vw;
   padding: 5rem;
   display: flex;

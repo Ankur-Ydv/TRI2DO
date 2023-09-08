@@ -4,9 +4,13 @@ export default function Document() {
   return (
     <Html lang="en">
       <title>Tri2Do</title>
-      <Head >
+      <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="true"
+        />
         <link
           href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;500&family=Titillium+Web:wght@200;400;600&display=swap"
           rel="stylesheet"

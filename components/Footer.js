@@ -1,8 +1,7 @@
 import styled from "@emotion/styled";
 import React from "react";
 import { GrInstagram, GrLinkedin, GrGithub } from "react-icons/gr";
-import {SiLeetcode} from "react-icons/si";
-
+import { SiLeetcode } from "react-icons/si";
 
 const Footer = () => {
   return (
@@ -11,7 +10,11 @@ const Footer = () => {
         <div className="author a1">
           <span>Devendra Bedwal</span>
           <div className="row">
-            <a href="https://www.linkedin.com/in/davendra-bedwal-09608b232/" target="_blank" rel="noreferrer">
+            <a
+              href="https://www.linkedin.com/in/davendra-bedwal-09608b232/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <GrLinkedin />
             </a>
             <a
@@ -21,7 +24,11 @@ const Footer = () => {
             >
               <SiLeetcode />
             </a>
-            <a href="https://github.com/devendra0009" target="_blank" rel="noreferrer">
+            <a
+              href="https://github.com/devendra0009"
+              target="_blank"
+              rel="noreferrer"
+            >
               <GrGithub />
             </a>
           </div>
@@ -58,6 +65,7 @@ const Footer = () => {
 };
 
 const Container = styled.div`
+  width: 100%;
   margin: 0 1rem;
   padding: 2rem 0;
   display: flex;
