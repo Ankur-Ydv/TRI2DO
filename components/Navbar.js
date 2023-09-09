@@ -6,14 +6,22 @@ import Modal from "./Modal";
 import ThemeToggler from "./ThemeToggler";
 import Link from "next/link";
 import { MyContext } from "../utils/myContext";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
   const [showModal, setShowModal] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const { user, setUser } = useContext(MyContext);
+  const router = useRouter();
 
-  const openModal = () => {
+  const handleLogin = () => {
     setShowModal((showModal) => !showModal);
+  };
+
+  const handleLogout = () => {
+    router.push("/");
+    localStorage.removeItem("tri2doId");
+    setUser(null);
   };
 
   return (
@@ -35,24 +43,24 @@ const Navbar = () => {
             {showDropdown ? (
               <>
                 <ul className="dropdown">
-                  <Link href="/solve/1">
+                  <a href="/solve/0">
                     <li>Aman DSA</li>
-                  </Link>
-                  <Link href="/solve/2">
+                  </a>
+                  <a href="/solve/1">
                     <li>Blind 75</li>
-                  </Link>
-                  <Link href="/solve/3">
+                  </a>
+                  <a href="/solve/2">
                     <li>NeetCode 150</li>
-                  </Link>
-                  <Link href="/solve/4">
+                  </a>
+                  <a href="/solve/3">
                     <li>Love Babbar</li>
-                  </Link>
-                  <Link href="/solve/5">
+                  </a>
+                  <a href="/solve/4">
                     <li>Striver Sde</li>
-                  </Link>
-                  <Link href="/solve/6">
+                  </a>
+                  <a href="/solve/5">
                     <li>Fraz 450</li>
-                  </Link>
+                  </a>
                 </ul>
               </>
             ) : (
@@ -65,19 +73,13 @@ const Navbar = () => {
           {user ? (
             <>
               <Link href="/profile" style={{ cursor: "pointer" }}>
-                <FaUserCircle />
+                <FaUserCircle style={{ fontSize: "25px" }} />
               </Link>
 
-              <MdLogout
-                onClick={() => {
-                  setUser(null);
-                  localStorage.removeItem("tri2doId");
-                }}
-                style={{ cursor: "pointer" }}
-              />
+              <MdLogout onClick={handleLogout} style={{ cursor: "pointer" }} />
             </>
           ) : (
-            <span onClick={openModal}>Login</span>
+            <span onClick={handleLogin}>Login</span>
           )}
         </div>
       </Container>
@@ -98,7 +100,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     gap: 2rem;
-    font-size: 22px;
+    font-size: 21px;
     .menu {
       position: relative;
       width: 13rem;

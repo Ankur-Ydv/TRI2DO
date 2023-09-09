@@ -4,18 +4,24 @@ import { MyContext } from "../utils/myContext";
 
 export default function App({ Component, pageProps }) {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (localStorage.getItem("tri2doId")) {
       setUser(localStorage.getItem("tri2doId"));
     }
+    setLoading(false);
   }, []);
 
   return (
     <>
-      <MyContext.Provider value={{ user, setUser }}>
-        <Component {...pageProps} />;
-      </MyContext.Provider>
+      {loading ? (
+        <></>
+      ) : (
+        <MyContext.Provider value={{ user, setUser }}>
+          <Component {...pageProps} />;
+        </MyContext.Provider>
+      )}
     </>
   );
 }

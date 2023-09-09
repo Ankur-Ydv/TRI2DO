@@ -4,7 +4,7 @@ import SheetBox from "../components/SheetBox";
 import SheetList from "../data/SheetList";
 import MainLayout from "../layouts/MainLayout";
 
-const index = ({ sheets }) => {
+const index = () => {
   return (
     <>
       <MainLayout>

@@ -10,22 +10,23 @@ import styled from "@emotion/styled";
 import { MdClose } from "react-icons/md";
 import axios from "axios";
 import { MyContext } from "../utils/myContext";
+import { useRouter } from "next/router";
 
 const Modal = ({ showModal, setShowModal }) => {
   const modalRef = useRef();
-  const { user, setUser } = useContext(MyContext);
+  const { setUser } = useContext(MyContext);
   const [username, setUsername] = useState("");
+  const router = useRouter();
 
   const handleSubmit = async () => {
-    console.log(username);
     if (username !== "") {
       const res = await axios.post("/api/user", { username });
-      console.log(res);
 
       if (res.status !== 200) alert(res.data.msg);
       else {
-        setUser(res.data.response._id);
+        router.push("/");
         localStorage.setItem("tri2doId", res.data.response._id);
+        setUser(res.data.response._id);
         setShowModal(false);
       }
     }
