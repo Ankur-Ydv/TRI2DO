@@ -8,7 +8,7 @@ import {
   BarElement,
 } from "chart.js";
 import { Bar } from "react-chartjs-2";
-import { MyContext } from "../utils/myContext";
+import MyContext from "../utils/MyContext";
 import axios from "axios";
 
 ChartJS.register(Tooltip, Legend, CategoryScale, LinearScale, BarElement);

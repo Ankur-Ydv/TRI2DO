@@ -5,7 +5,7 @@ import MainLayout from "../../layouts/MainLayout";
 import { FaRandom, FaStar, FaListAlt } from "react-icons/fa";
 import ProblemBox from "../../components/ProblemBox";
 import Bar from "../../components/Bar";
-import { MyContext } from "../../utils/myContext";
+import MyContext from "../../utils/MyContext";
 import { Sheets } from "../../data/SheetList";
 import { useRouter } from "next/router";
 

@@ -1,8 +1,7 @@
 import styled from "@emotion/styled";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { FaExternalLinkAlt, FaBookmark, FaRegBookmark } from "react-icons/fa";
-import axios from "axios";
 
 const ProblemBox = ({ problem, handleBookmark, handleCheck }) => {
   const [isBmk, setIsBmk] = useState(problem.isBookmarked);

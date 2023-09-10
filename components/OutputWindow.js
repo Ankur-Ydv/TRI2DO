@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-
 import styled from "@emotion/styled";
 
 const OutputWindow = ({ outputDetails }) => {

@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import React from "react";
-import { GrInstagram, GrLinkedin, GrGithub } from "react-icons/gr";
+import { GrLinkedin, GrGithub } from "react-icons/gr";
 import { SiLeetcode } from "react-icons/si";
 
 const Footer = () => {

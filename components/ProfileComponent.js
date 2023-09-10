@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import React, { useContext, useEffect, useState } from "react";
 import MainLayout from "../layouts/MainLayout";
-import { MyContext } from "../utils/myContext";
+import MyContext from "../utils/MyContext";
 import axios from "axios";
 import { MdOutlineChangeCircle } from "react-icons/md";
 import DoughnutChart from "./DoughtnutChart";

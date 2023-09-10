@@ -9,7 +9,7 @@ import { useSpring, animated } from "react-spring";
 import styled from "@emotion/styled";
 import { MdClose } from "react-icons/md";
 import axios from "axios";
-import { MyContext } from "../utils/myContext";
+import MyContext from "../utils/MyContext";
 import { useRouter } from "next/router";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

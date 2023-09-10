@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "../styles/globals.css";
-import { MyContext } from "../utils/myContext";
+import MyContext from "../utils/MyContext";
 
 export default function App({ Component, pageProps }) {
   const [user, setUser] = useState(null);

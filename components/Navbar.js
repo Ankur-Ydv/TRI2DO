@@ -1,11 +1,10 @@
 import styled from "@emotion/styled";
-import React, { useContext, useEffect, useState } from "react";
-import { FaUserCircle } from "react-icons/fa";
+import React, { useContext, useState } from "react";
 import { MdLogout } from "react-icons/md";
 import Modal from "./Modal";
 import ThemeToggler from "./ThemeToggler";
 import Link from "next/link";
-import { MyContext } from "../utils/myContext";
+import MyContext from "../utils/MyContext";
 import { useRouter } from "next/router";
 
 const Navbar = () => {
