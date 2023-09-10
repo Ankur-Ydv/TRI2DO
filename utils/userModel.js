@@ -22,6 +22,10 @@ const UserSchema = new Schema({
     required: true,
     unique: true,
   },
+  password: {
+    type: String,
+    required: true,
+  },
   sheet0: {
     type: SheetSchema,
     default: defaultSheet,

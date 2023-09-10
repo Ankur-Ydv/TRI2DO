@@ -18,13 +18,12 @@ const SheetBox = ({ sheet }) => {
 };
 
 const Container = styled.div`
-  width: 350px;
-  height: 400px;
+  width: 300px;
+  height: 350px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid;
   border-radius: 1rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 1rem;
@@ -38,8 +37,8 @@ const Container = styled.div`
     font-family: "Titillium Web", sans-serif;
   }
   img {
-    width: 300px;
-    height: 220px;
+    width: 250px;
+    height: 150px;
     object-fit: fill;
   }
   p {

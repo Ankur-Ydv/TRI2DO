@@ -19,12 +19,16 @@ const index = () => {
 };
 
 const Container = styled.div`
+  width: 75%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  padding: 4rem 2rem 4rem 2rem;
-  gap: 6rem;
+  padding: 2rem;
+  gap: 4rem;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   @media screen and (max-width: 520px) {
     padding: 1rem;

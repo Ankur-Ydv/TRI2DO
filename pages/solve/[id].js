@@ -128,10 +128,17 @@ const Solve = ({ sheet, sheetId }) => {
                 placeholder="Search"
                 onChange={(e) => setSearch(e.target.value)}
               />
-              <FaStar
-                style={{ cursor: "pointer" }}
-                onClick={() => setShowBookmark(!showBookmark)}
-              />
+              {showBookmark ? (
+                <FaStar
+                  style={{ cursor: "pointer", color: "#fcb001" }}
+                  onClick={() => setShowBookmark(!showBookmark)}
+                />
+              ) : (
+                <FaStar
+                  style={{ cursor: "pointer" }}
+                  onClick={() => setShowBookmark(!showBookmark)}
+                />
+              )}
               <span style={{ cursor: "pointer" }} onClick={(e) => setTopic("")}>
                 ALL
               </span>
@@ -204,21 +211,31 @@ const Container = styled.div`
     justify-content: space-evenly;
     align-items: center;
     padding: 0.5rem;
-    border: 1px solid;
+    background: var(--box);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 15px;
+    color: var(--fourth);
     .bar {
       padding: 0.75rem;
       width: 80%;
+    }
+    input {
+      outline: none;
+      background: var(--bgcolor);
+      color: var(--text);
+      border: none;
+      box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3) inset;
     }
   }
 `;
 
 const QuestionBox = styled.div`
-  border: 1px solid;
+  background: var(--box);
+  color: var(--fourth);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 15px;
   .row1 {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 3fr;
-    border: 1px solid;
     align-items: center;
     padding: 0.5rem;
   }
@@ -228,16 +245,17 @@ const QuestionBox = styled.div`
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-template-rows: fit-content(0);
+    border-top: 1px solid var(--text);
     .topics {
       height: fit-content;
       display: flex;
       flex-direction: column;
-      border: 1px solid;
       span {
         padding: 1rem;
         :hover {
-          background-color: aliceblue;
+          background-color: var(--grey);
           cursor: pointer;
+          transition: 0.4s ease-in-out;
         }
       }
     }
@@ -246,6 +264,8 @@ const QuestionBox = styled.div`
       display: flex;
       flex-direction: column;
       overflow-y: auto;
+      background: rgb(247 248 250/1);
+      color: black;
     }
   }
 `;

@@ -10,7 +10,7 @@ const ProblemBox = ({ problem, handleBookmark, handleCheck }) => {
 
   return (
     <>
-      <Container>
+      <Container style={{ background: isCheck ? "#e5f6df" : "none" }}>
         <span className="check">
           <input
             type="checkbox"
@@ -47,8 +47,8 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  border: 1px solid;
-  border-right: none;
+  border: 1px solid black;
+  border-top: none;
   span {
     padding: 1rem;
   }

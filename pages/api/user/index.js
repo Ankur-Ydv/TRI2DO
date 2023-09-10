@@ -6,9 +6,22 @@ export default async function handler(req, res) {
 
   if (req.method === "POST") {
     try {
-      let response = await Users.findOne({ username: req.body.username });
-      if (!response)
-        response = await Users.create({ username: req.body.username });
+      const { username, password, login } = req.body;
+
+      const response = await Users.findOne({ username });
+
+      if (login) {
+        // registering new user
+        if (response) {
+          return res.status(201).json({ msg: "User Already Registered" });
+        }
+        const resp = await Users.create({ username, password });
+
+        return res.status(200).json({ resp });
+      }
+
+      if (!response || response.password !== password)
+        return res.status(201).json({ msg: "Invalid Credentials" });
 
       return res.status(200).json({ response });
     } catch (error) {

@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import { MdLogout } from "react-icons/md";
 import Modal from "./Modal";
@@ -27,9 +27,9 @@ const Navbar = () => {
   return (
     <>
       <Container>
-        <div className="col">
+        <div className={`col`}>
           <Link href="/">
-            <span className="heading">Tri2Do</span>
+            <span className="heading ">TRI2DO</span>
           </Link>
           <Link href="/compiler">
             <span className="head">Compiler</span>
@@ -43,24 +43,24 @@ const Navbar = () => {
             {showDropdown ? (
               <>
                 <ul className="dropdown">
-                  <a href="/solve/0">
+                  <Link href="/solve/0">
                     <li>Aman DSA</li>
-                  </a>
-                  <a href="/solve/1">
+                  </Link>
+                  <Link href="/solve/1">
                     <li>Blind 75</li>
-                  </a>
-                  <a href="/solve/2">
+                  </Link>
+                  <Link href="/solve/2">
                     <li>NeetCode 150</li>
-                  </a>
-                  <a href="/solve/3">
+                  </Link>
+                  <Link href="/solve/3">
                     <li>Love Babbar</li>
-                  </a>
-                  <a href="/solve/4">
+                  </Link>
+                  <Link href="/solve/4">
                     <li>Striver Sde</li>
-                  </a>
-                  <a href="/solve/5">
+                  </Link>
+                  <Link href="/solve/5">
                     <li>Fraz 450</li>
-                  </a>
+                  </Link>
                 </ul>
               </>
             ) : (
@@ -73,7 +73,12 @@ const Navbar = () => {
           {user ? (
             <>
               <Link href="/profile" style={{ cursor: "pointer" }}>
-                <FaUserCircle style={{ fontSize: "25px" }} />
+                {/* <FaUserCircle style={{ fontSize: '25px' }} /> */}
+                <img
+                  src={localStorage.getItem("avatar")}
+                  alt=""
+                  style={{ width: "2rem", borderRadius: "50%" }}
+                />
               </Link>
 
               <MdLogout onClick={handleLogout} style={{ cursor: "pointer" }} />
@@ -90,33 +95,43 @@ const Navbar = () => {
 
 const Container = styled.div`
   width: 100%;
-  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem;
-  border: 1px solid;
+  padding: 1rem 2rem;
+  background: var(--box);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+  color: var(--text);
+  position: sticky;
+  top: 0;
+  z-index: 8;
   .col {
     display: flex;
     align-items: center;
     gap: 2rem;
-    font-size: 21px;
+    font-size: 20px;
+    .heading {
+      color: var(--blue);
+      font-size: 24px;
+      font-weight: bold;
+    }
     .menu {
       position: relative;
-      width: 13rem;
+      width: 15rem;
       .dropdown {
         position: absolute;
         display: flex;
         flex-direction: column;
         list-style-type: none;
-        z-index: 10;
         background: var(--box);
-        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
-        font-size: 16px;
+        font-size: 14px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+          rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
         a {
           padding: 0.75rem;
           &:hover {
-            background: aliceblue;
+            background: var(--grey);
+            transition: 0.3s ease-in-out;
           }
         }
       }

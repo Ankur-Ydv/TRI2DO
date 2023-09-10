@@ -1,9 +1,6 @@
-/* eslint-disable react/prop-types */
-
 import Select from "react-select";
 import { languageOptions } from "../constants/languageOptions";
 import { customStyles } from "../constants/customStyles";
-
 
 const LanguagesDropdown = ({ onSelectChange }) => {
   return (
