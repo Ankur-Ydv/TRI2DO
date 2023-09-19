@@ -29,6 +29,7 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   color: var(--text);
+  width: 100%;
 `;
 const Para = styled.div`
   padding: 2px 0;

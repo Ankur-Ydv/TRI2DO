@@ -8,6 +8,7 @@ import Bar from "../../components/Bar";
 import MyContext from "../../utils/MyContext";
 import { Sheets } from "../../data/SheetList";
 import { useRouter } from "next/router";
+import { ToastContainer, toast } from "react-toastify";
 
 export async function getStaticPaths() {
   const paths = Sheets.map((sheet) => ({
@@ -43,6 +44,10 @@ const Solve = ({ sheet, sheetId }) => {
   const [loading, setLoading] = useState(user !== null);
   const [problems, setProblems] = useState(sheet.problems);
 
+  // useEffect(() => {
+  //   router.replace(router.asPath);
+  // }, [router.asPath]);
+
   useEffect(() => {
     if (user) {
       const setData = async () => {
@@ -64,7 +69,7 @@ const Solve = ({ sheet, sheetId }) => {
 
       setData();
     }
-  }, []);
+  }, [router.asPath]);
 
   useEffect(() => {
     if (showBookmark) {
@@ -75,28 +80,102 @@ const Solve = ({ sheet, sheetId }) => {
   }, [showBookmark]);
 
   const handleBookmark = async (id) => {
-    const res = await axios.put(`/api/user/${user}`, {
-      sheetId,
-      problem: id,
-      arrayType: "bookmarked",
-      isAddRequest: !sheet.problems[id - 1].isBookmarked,
-    });
-    if (res.status === 200)
-      sheet.problems[id - 1].isBookmarked =
-        !sheet.problems[id - 1].isBookmarked;
+    try {
+      if (user) {
+        const res = await axios.put(`/api/user/${user}`, {
+          sheetId,
+          problem: id,
+          arrayType: "bookmarked",
+          isAddRequest: !sheet.problems[id - 1].isBookmarked,
+        });
+        if (res.status === 200)
+          sheet.problems[id - 1].isBookmarked =
+            !sheet.problems[id - 1].isBookmarked;
+        toast.success("Bookmarked Successfully!!", {
+          position: "bottom-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: localStorage.getItem("theme").slice(0, -6),
+        });
+      } else {
+        toast.warning("Please Login To Track!!", {
+          position: "bottom-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: localStorage.getItem("theme").slice(0, -6),
+        });
+      }
+    } catch (error) {
+      toast.error(error, {
+        position: "bottom-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: localStorage.getItem("theme").slice(0, -6),
+      });
+    }
   };
 
   const handleCheck = async (id) => {
-    const res = await axios.put(`/api/user/${user}`, {
-      sheetId,
-      problem: id,
-      arrayType: "solved",
-      isAddRequest: !sheet.problems[id - 1].isSolved,
-    });
-    if (res.status === 200) {
-      sheet.problems[id - 1].isSolved = !sheet.problems[id - 1].isSolved;
-      if (sheet.problems[id - 1].isSolved) setSolvedNumber(solvedNumber + 1);
-      else setSolvedNumber(solvedNumber - 1);
+    try {
+      if (user) {
+        const res = await axios.put(`/api/user/${user}`, {
+          sheetId,
+          problem: id,
+          arrayType: "solved",
+          isAddRequest: !sheet.problems[id - 1].isSolved,
+        });
+        if (res.status === 200) {
+          sheet.problems[id - 1].isSolved = !sheet.problems[id - 1].isSolved;
+          if (sheet.problems[id - 1].isSolved)
+            setSolvedNumber(solvedNumber + 1);
+          else setSolvedNumber(solvedNumber - 1);
+          toast.success("Checked Successfully!!", {
+            position: "bottom-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: localStorage.getItem("theme").slice(0, -6),
+          });
+        }
+      } else {
+        toast.warning("Please Login To Track!!", {
+          position: "bottom-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: localStorage.getItem("theme").slice(0, -6),
+        });
+      }
+    } catch (error) {
+      toast.error(error, {
+        position: "bottom-right",
+        autoClose: 1000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: localStorage.getItem("theme").slice(0, -6),
+      });
+      // alert(error);
     }
   };
 
@@ -187,6 +266,7 @@ const Solve = ({ sheet, sheetId }) => {
           </>
         )}
       </Container>
+      <ToastContainer />
     </MainLayout>
   );
 };
@@ -219,12 +299,19 @@ const Container = styled.div`
       width: 80%;
     }
     input {
+      margin: 0 10px;
       outline: none;
       background: var(--bgcolor);
       color: var(--text);
       border: none;
       box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3) inset;
     }
+  }
+  @media (max-width: 900px) {
+    width: 80%;
+  }
+  @media (max-width: 500px) {
+    width: 90%;
   }
 `;
 
@@ -266,6 +353,12 @@ const QuestionBox = styled.div`
       overflow-y: auto;
       background: rgb(247 248 250/1);
       color: black;
+    }
+  }
+  @media (max-width: 500px) {
+    width: 100%;
+    .row1 {
+      display: none;
     }
   }
 `;

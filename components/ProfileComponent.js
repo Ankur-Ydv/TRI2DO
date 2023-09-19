@@ -56,8 +56,8 @@ const ProfileComponent = () => {
 };
 
 const Container = styled.div`
-  min-height: 75vh;
-  width: 100vh;
+  /* min-height: 100%; */
+  width: 70%;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   padding: 16px;
@@ -65,6 +65,10 @@ const Container = styled.div`
   background-color: var(--box);
   text-align: center;
   color: var(--text);
+  @media (max-width: 500px)
+  {
+    width: 90%;
+  }
 `;
 
 const FlexBox = styled.div`
@@ -74,6 +78,11 @@ const FlexBox = styled.div`
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   padding: 0.5rem 0;
   align-items: center;
+  @media (max-width: 500px)
+  {
+    flex-direction: column;
+    gap: 1rem;
+  }
 `;
 
 const UserImage = styled.img`
@@ -81,11 +90,16 @@ const UserImage = styled.img`
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
-`;
+  `;
 
 const UserName = styled.h2`
+/* font-size: 2vw; */
   font-size: 1.5rem;
   margin: 8px 0;
+  @media (max-width: 500px)
+  {
+    font-size: 1rem;
+  }
 `;
 
 const UserDetails = styled.p`

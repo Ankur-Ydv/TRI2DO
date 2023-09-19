@@ -54,9 +54,13 @@ const Container = styled.div`
       padding: 1rem 2rem;
       border-radius: 8px;
       color: white;
-      background-color: var(--green);
+      font-weight: bold;
+      background-color: #0bdf0b;
       cursor: pointer;
-      transition: 0.5s ease-in-out;
+      /* transition: 0.5s ease-in-out; */
+      :hover{
+        background-color: #07ee07;
+      }
     }
   }
 `;

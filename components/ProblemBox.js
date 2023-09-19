@@ -1,9 +1,11 @@
 import styled from "@emotion/styled";
 import Link from "next/link";
-import React, { useState } from "react";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 import { FaExternalLinkAlt, FaBookmark, FaRegBookmark } from "react-icons/fa";
 
 const ProblemBox = ({ problem, handleBookmark, handleCheck }) => {
+  const router = useRouter();
   const [isBmk, setIsBmk] = useState(problem.isBookmarked);
   const [isCheck, setIsCheck] = useState(problem.isSolved);
 
@@ -53,6 +55,12 @@ const Container = styled.div`
   }
   .problem {
     width: 80%;
+  }
+  @media (max-width: 500px) {
+    .check,
+    .bookmark {
+      display: none;
+    }
   }
 `;
 

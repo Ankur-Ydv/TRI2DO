@@ -20,6 +20,7 @@ const Modal = ({ showModal, setShowModal }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState(false);
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   const showErrorToast = (msg) => {
@@ -37,6 +38,7 @@ const Modal = ({ showModal, setShowModal }) => {
 
   const handleSubmit = async () => {
     if (username !== "" && password !== "") {
+      setLoading(true);
       try {
         const res = await axios.post("/api/user", {
           username,
@@ -52,11 +54,14 @@ const Modal = ({ showModal, setShowModal }) => {
           setUser(res.data.response._id);
           setShowModal(false);
         }
+        setLoading(false);
       } catch (error) {
+        setLoading(false);
         showErrorToast(error.msg);
       }
     } else {
-      showErrorToast("Invalid Request");
+      setLoading(false);
+      showErrorToast("Please Fill Your Credentials");
     }
   };
 
@@ -101,20 +106,24 @@ const Modal = ({ showModal, setShowModal }) => {
                   onChange={(e) => {
                     setUsername(e.target.value);
                   }}
+                  style={{ paddingRight: "4rem" }}
                 />
                 <input
-                  type="text"
-                  placeholder="Enter Paswword"
+                  type="password"
+                  placeholder="Enter Password"
                   onChange={(e) => {
                     setPassword(e.target.value);
                   }}
                 />
                 <div style={{ width: "100%" }}>
                   <button onClick={handleSubmit}>
-                    {!login ? "CONTINUE SOLVING" : "START SOLVING"}
+                    {!loading
+                      ? !login
+                        ? "CONTINUE SOLVING"
+                        : "START SOLVING"
+                      : "Entering..."}
                   </button>
-                  <p style={{ textAlign: "right", padding: "0.5rem" }}>
-                    click Here to{" "}
+                  <p style={{ textAlign: "right", paddingTop: "1rem" }}>
                     <span className="login" onClick={() => setLogin(!login)}>
                       {login ? "LOGIN" : "REGISTER"}
                     </span>
@@ -135,8 +144,9 @@ const Modal = ({ showModal, setShowModal }) => {
 };
 
 const Background = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
   background: rgba(0, 0, 0, 0.8);
   position: fixed;
   display: flex;
@@ -145,17 +155,22 @@ const Background = styled.div`
 `;
 
 const ModalWrapper = styled.div`
-  width: 500px;
+  width: 400px;
   height: 300px;
   background: var(--box);
   display: flex;
   justify-content: center;
-  z-index: 11;
   border-radius: 10px;
+  z-index: 11;
+  @media (max-width: 500px) {
+    width: 90vw;
+    bottom: 0;
+    height: 220px;
+  }
 `;
 
 const ModalContent = styled.div`
-  width: 60%;
+  width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -200,6 +215,7 @@ const CloseModalButton = styled(MdClose)`
   height: 32px;
   padding: 0;
   z-index: 10;
+  color: var(--text);
 `;
 
 export default Modal;

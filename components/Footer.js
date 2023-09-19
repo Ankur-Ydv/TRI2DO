@@ -69,11 +69,13 @@ const Container = styled.div`
   margin: 0 1rem;
   padding: 2rem 0;
   display: flex;
+  font-size: 100%;
   align-items: center;
   gap: 1rem;
   background: transparent;
   color: var(--primary);
   border-top: 2px solid var(--primary);
+  border-bottom: 2px solid var(--primary);
   .author {
     width: 50%;
     display: flex;
@@ -82,7 +84,7 @@ const Container = styled.div`
     flex-direction: column;
     gap: 1rem;
     span {
-      font-size: 20px;
+      /* font-size: 20px; */
       color: var(--primary);
     }
     .row {
@@ -91,7 +93,7 @@ const Container = styled.div`
       align-items: center;
       gap: 2rem;
       a {
-        font-size: 20px;
+        /* font-size: 20px; */
         &:hover {
           color: var(--third);
         }

@@ -4,7 +4,7 @@ import React from "react";
 const CustomInput = ({ customInput, setCustomInput }) => {
   return (
     <Container>
-      <span style={{ fontSize: "20px", fontWeight: "bold" }}>INPUT</span>
+      <span >INPUT</span>
       <textarea
         rows="9"
         value={customInput}
@@ -17,6 +17,14 @@ const CustomInput = ({ customInput, setCustomInput }) => {
 
 const Container = styled.div`
   color: var(--text);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* background-color: green; */
+  /* width: 400px; */
+  span{
+    font-size: 20px; font-weight: bold;
+  }
   textarea {
     width: 100%;
     background: var(--bgcolor);
