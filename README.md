@@ -1,8 +1,5 @@
 # Tri2Do
-#### It is ONE-STOP Web-App for all trending DSA Sheets. 
-
-## Demo
-#### https://tri2do.vercel.app/
+A comprehensive platform designed to consolidate 6 trending DSA Sheets, essential for preparing for placements and technical interviews, which includes authentication functionality to securely store user-specific progress.
 
 ## Installation Guide
 ### clone the project
@@ -14,6 +11,10 @@
   cd Tri2Do
 ```
 ### Install dependencies
+```
+  npm install
+```
+### Define .env file 
 ```
   npm install
 ```
